@@ -1,0 +1,140 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+body{
+    min-height:100vh;
+}
+.background{
+    min-height:100vh;
+    background:#ffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+.mobile{
+    width:360px;
+    height:720px;
+    background:white;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    position: relative; /* Цэс дотор нь зөв байрлахад тусална */
+    overflow: hidden; /* Багтахгүй элемент гадагш гарахаас сэргийлнэ */
+}
+.mobile h3{
+    color:#dcc1c1;
+    font-size:15px;
+    margin-bottom:30px;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 45px;
+    margin-bottom:70px;
+    position: relative;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+}
+.menu span {
+    width: 100%;
+    height: 3.5px;
+    background-color: #8b7adf;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.menu-dropdown {
+    position: absolute;
+    top: 35px;
+    left: 45px; 
+    width: 160px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(139, 122, 223, 0.15); /* Зөөлөн нил ягаан сүүдэр */
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+.menu-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.menu-dropdown a {
+    color: #5c527f;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+.menu-dropdown a:hover {
+    background: #f3f0ff;
+    color: #8b7adf;
+}
+.menu.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu.open span:nth-child(2) {
+    opacity: 0;
+}
+.menu.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -7px);
+}
+.notification{
+    position:relative;
+}
+.notification i{
+    font-size:30px;
+    color:#8e81cc;
+}
+.notification span{
+    position:absolute;
+    top:-8px;
+    right:-8px;
+    width:18px;
+    height:18px;
+    background:#9488cd;
+    color:white;
+    border-radius:50%;
+    font-size:11px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.quote-card{
+    width:260px;
+    height:490px;
+    margin:auto;
+    background:#4f9ff4;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+.quote-card p{
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    line-height:1.8;
+    text-align:center;
+}

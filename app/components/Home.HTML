@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="Home.CSS">
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+</head>
+<body>
+<div class="background">
+    <div class="mobile">
+        <h3>Нүүр</h3>
+        <div class="header">
+            <div class="menu-container">
+                <i class="fa-solid fa-bars menu" id="menuBtn"></i>
+                <div class="menu-dropdown" id="menuDropdown">
+                    <a href="#"></i>Тохиргоо </a>
+                    <a href="#"></i>Хэл солих</a>
+                    <a href="#"></i>Сурагчдийн мэдээлэл</a>
+                    <a href="#"></i>Багшийн мэдээлэл</a>
+                    <a href="#"></i>Өрөөний мэдээлэл</a>
+                    <a href="#"></i>Чөлөө авах</a>
+                    <a href="#"></i>Бүртгэл</a>
+                    <a href="#"></i>Зарлал</a>
+                    <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Гарах</a>
+                </div>
+            </div>
+            <div class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <span>3</span>
+            </div>
+        </div>
+        <div class="quote-card">
+            <p>
+                Харамсахгүйн тулд хамаг
+                чадлаараа хичээ.
+                Шаргуу хичээлийнхээ
+                үр дүнг өөртөө
+                хүлээн зөвшөөр
+                гаргасан амжилт чинь
+                чиний өмнөөс ярих болно.
+                Дэмий хэрэггүй оролдох
+                хийж байдаг хүмүүс л
+                боломжгүй зүйлд хүрч чаддаг.
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const menuDropdown = document.getElementById('menuDropdown');
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        menuDropdown.classList.toggle('active');
+    });
+    document.addEventListener('click', () => {
+        menuDropdown.classList.remove('active');
+    });
+</script>
+</body>
+</html>
