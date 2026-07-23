@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бүртгэл үүсгэх</title>
+    <link rel="stylesheet" href="Sign-up.css">
+</head>
+<body>
+<div class="card">
+    <div class="card-header">
+        <h2>Бүртгэл үүсгэх</h2>
+        <p>Бүртгүүлэхийн тулд мэдээллүүдийг оруулна уу</p>
+    </div>
+    <form>
+        <div class="field">
+            <label for="name">Овог Нэр</label>
+            <input
+                type="text"
+                id="name"
+                placeholder=""
+                required
+            >
+        </div>
+        <div class="field">
+            <label for="email">И-мэйл</label>
+            <input
+                type="email"
+                id="email"
+                placeholder=""
+                required
+            >
+            <small>
+               Бид үүнийг тантай холбогдоход ашиглана. Таны цахим шуудангийн хаягийг бусдад бүү дамжуулаарай.
+            </small>
+        </div>
+        <div class="field">
+            <label for="password">Нууц үг</label>
+            <input
+                type="password"
+                id="password"
+                required
+            >
+            <small>Нууц үг 8 тэмдэгтээс дээш байх хэрэгтэй.</small>
+        </div>
+        <div class="field">
+            <label for="confirm-password">Нууц үгийг баталгаажуулах</label>
+            <input
+                type="password"
+                id="confirm-password"
+                required
+            >
+            <small>Нууц үгийг баталгаажуулна уу.</small>
+        </div>
+        <button class="btn-primary" type="submit">
+            Бүртгэл үүсгэх
+        </button>
+        <button class="btn-outline" type="button">
+            Google-р бүртгүүлэх
+        </button>
+        <p class="login-link">
+            Та өөрийн бүртгэлтэй юу?
+            <a href="#">Нэвтрэх</a>
+        </p>
+    </form>
+</div>
+</body>
+</html>

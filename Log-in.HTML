@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нэвтрэх</title>
+    <link rel="stylesheet" href="Log-in.css">
+</head>
+<body>
+<div class="login-container">
+    <form class="login-form" action="Home.HTML">
+        <div class="header">
+            <h1>Нэвтрэх</h1>
+            <p>Таны имэйл хаягаар нэвтэрнэ үү</p>
+        </div>
+
+        <div class="field">
+            <label>Имэйл</label>
+            <input
+                type="email"
+                placeholder=""
+                required
+                oninvalid="
+                    if(this.validity.valueMissing){
+                        this.setCustomValidity('Имэйл хаягаа оруулна уу.');
+                    }else if(this.validity.typeMismatch){
+                        this.setCustomValidity('Зөв имэйл хаяг оруулна уу.');
+                    }
+                "
+                oninput="this.setCustomValidity('')"
+            >
+        </div>
+        <div class="field">
+            <div class="password-header">
+                <label>Нууц үг</label>
+                <a href="#">
+                    Нууц үгээ мартсан уу?
+                </a>
+            </div>
+            <input
+                type="password"
+                placeholder="Нууц үг"
+                required
+                minlength="8"
+                oninvalid="
+                    if(this.validity.valueMissing){
+                        this.setCustomValidity('Нууц үгээ оруулна уу.');
+                    }else if(this.validity.tooShort){
+                        this.setCustomValidity('Нууц үг хамгийн багадаа 8 тэмдэгттэй байх ёстой.');
+                    }
+                "
+                oninput="this.setCustomValidity('')"
+            >
+        </div>
+        <button
+            class="login-btn"
+            type="submit">
+            Нэвтрэх
+        </button>
+        <div class="separator">
+            <span></span>
+            эсвэл
+            <span></span>
+        </div>
+        <button
+            class="github-btn"
+            type="button">
+            Имэйл хаягаар нэвтрэх
+        </button>
+        <p class="signup">
+            Хаяг байгаа юу?
+            <a href="/app/components/Sign-up.HTML">
+                Бүртгүүлэх
+            </a>
+        </p>
+    </form>
+</div>
+</body>
+</html>
