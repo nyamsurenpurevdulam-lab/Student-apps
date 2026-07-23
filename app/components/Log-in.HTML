@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,25 +11,28 @@
     <form class="login-form" action="Home.HTML">
         <div class="header">
             <h1>Нэвтрэх</h1>
-            <p>
-                Таны имэйл хаягаар нэвтрэнэ үү
-            </p>
+            <p>Таны имэйл хаягаар нэвтэрнэ үү</p>
         </div>
+
         <div class="field">
-            <label>
-                Имэйл
-            </label>
-            <input 
+            <label>Имэйл</label>
+            <input
                 type="email"
                 placeholder="m@example.com"
                 required
+                oninvalid="
+                    if(this.validity.valueMissing){
+                        this.setCustomValidity('Имэйл хаягаа оруулна уу.');
+                    }else if(this.validity.typeMismatch){
+                        this.setCustomValidity('Зөв имэйл хаяг оруулна уу.');
+                    }
+                "
+                oninput="this.setCustomValidity('')"
             >
         </div>
         <div class="field">
             <div class="password-header">
-                <label>
-                    Нууц үг
-                </label>
+                <label>Нууц үг</label>
                 <a href="#">
                     Нууц үгээ мартсан уу?
                 </a>
@@ -38,9 +41,18 @@
                 type="password"
                 placeholder="Нууц үг"
                 required
+                minlength="8"
+                oninvalid="
+                    if(this.validity.valueMissing){
+                        this.setCustomValidity('Нууц үгээ оруулна уу.');
+                    }else if(this.validity.tooShort){
+                        this.setCustomValidity('Нууц үг хамгийн багадаа 8 тэмдэгттэй байх ёстой.');
+                    }
+                "
+                oninput="this.setCustomValidity('')"
             >
         </div>
-        <button 
+        <button
             class="login-btn"
             type="submit">
             Нэвтрэх
@@ -50,14 +62,14 @@
             эсвэл
             <span></span>
         </div>
-        <button 
+        <button
             class="github-btn"
             type="button">
             Имэйл хаягаар нэвтрэх
         </button>
         <p class="signup">
-            Хаяг байхгүй юу?
-          <a href="/app/components/Sign-up.HTML">
+            Хаяг байгаа юу?
+            <a href="/app/components/Sign-up.HTML">
                 Бүртгүүлэх
             </a>
         </p>

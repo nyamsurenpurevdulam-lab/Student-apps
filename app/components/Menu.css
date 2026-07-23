@@ -1,9 +1,12 @@
+/* Үндсэн хуудасны тохиргоо */
 body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
     height: 100vh;
 }
+
+/* Цэсний гаднах контейнер сав */
 .menu-wrapper {
     padding: 24px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -13,6 +16,8 @@ body {
     height: 100%;
     box-sizing: border-box;
 }
+
+/* Гарчиг */
 .menu-title {
     margin-top: 0;
     margin-bottom: 20px;
@@ -20,11 +25,15 @@ body {
     font-weight: 700;
     color: #1e293b;
 }
+
+/* Цэсний жагсаалт байрлах хэсэг */
 .menu-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
+
+/* Цэсний товчлуурууд/линкүүд */
 .menu-item {
     text-decoration: none;
     color: #334155;
@@ -37,23 +46,32 @@ body {
     gap: 12px;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+/* Цэсний икон */
 .menu-icon {
     width: 20px;
     color: #64748b;
     text-align: center;
     transition: color 0.2s ease;
 }
+
+/* Ховер эффект (Хулганаа дээр нь аваачих үед) */
 .menu-item:hover {
     background-color: #f1f5f9;
     color: #0f172a;
 }
+
 .menu-item:hover .menu-icon {
-    color: #3b82f6; 
+    color: #3b82f6; /* Hover хийхэд икон цэнхэр болно */
 }
+
+/* Доод талын гарах хэсэг */
 .logout-container {
     padding-top: 16px;
     border-top: 1px solid #e2e8f0;
 }
+
+/* Гарах товчлуур */
 .logout-btn {
     text-decoration: none;
     color: #ef4444;
