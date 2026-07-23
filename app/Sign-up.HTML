@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +10,17 @@
 <div class="card">
     <div class="card-header">
         <h2>Бүртгэл үүсгэх</h2>
-        <p>Бүртгүүлэхийн тулд мэдээллүүдийг оруулна уу</p>
+        <p>Бүртгүүлэхийн тулд мэдээллүүдээ оруулна уу.</p>
     </div>
-    <form>
+    <form id="signupForm">
         <div class="field">
-            <label for="name">Овог Нэр</label>
+            <label for="name">Овог нэр</label>
             <input
                 type="text"
                 id="name"
-                placeholder=""
                 required
+                oninvalid="this.setCustomValidity('Овог нэрээ оруулна уу.')"
+                oninput="this.setCustomValidity('')"
             >
         </div>
         <div class="field">
@@ -27,11 +28,12 @@
             <input
                 type="email"
                 id="email"
-                placeholder=""
                 required
+                oninvalid="emailValidation(this)"
+                oninput="this.setCustomValidity('')"
             >
             <small>
-               Бид үүнийг тантай холбогдоход ашиглана. Таны цахим шуудангийн хаягийг бусдад бүү дамжуулаарай.
+                Бид таны и-мэйл хаягийг зөвхөн тантай холбогдоход ашиглана.
             </small>
         </div>
         <div class="field">
@@ -39,16 +41,21 @@
             <input
                 type="password"
                 id="password"
+                minlength="8"
                 required
+                oninvalid="passwordValidation(this)"
+                oninput="this.setCustomValidity('')"
             >
-            <small>Нууц үг 8 тэмдэгтээс дээш байх хэрэгтэй.</small>
+            <small>Нууц үг хамгийн багадаа 8 тэмдэгттэй байх ёстой.</small>
         </div>
         <div class="field">
-            <label for="confirm-password">Нууц үгийг баталгаажуулах</label>
+            <label for="confirm-password">Нууц үгээ дахин оруулна уу</label>
             <input
                 type="password"
                 id="confirm-password"
                 required
+                oninvalid="this.setCustomValidity('Нууц үгээ дахин оруулна уу.')"
+                oninput="this.setCustomValidity('')"
             >
             <small>Нууц үгийг баталгаажуулна уу.</small>
         </div>
@@ -59,10 +66,43 @@
             Google-р бүртгүүлэх
         </button>
         <p class="login-link">
-            Та өөрийн бүртгэлтэй юу?
-            <a href="#">Нэвтрэх</a>
+            Бүртгэлтэй юу?
+            <a href="Log-in.HTML">Нэвтрэх</a>
         </p>
     </form>
 </div>
+<script>
+function emailValidation(input) {
+    if (input.validity.valueMissing) {
+        input.setCustomValidity("И-мэйл хаягаа оруулна уу.");
+    } else if (input.validity.typeMismatch) {
+        input.setCustomValidity("Зөв и-мэйл хаяг оруулна уу.");
+    } else {
+        input.setCustomValidity("");
+    }
+}
+function passwordValidation(input) {
+    if (input.validity.valueMissing) {
+        input.setCustomValidity("Нууц үгээ оруулна уу.");
+    } else if (input.validity.tooShort) {
+        input.setCustomValidity("Нууц үг хамгийн багадаа 8 тэмдэгттэй байх ёстой.");
+    } else {
+        input.setCustomValidity("");
+    }
+}
+const form = document.getElementById("signupForm");
+form.addEventListener("submit", function(event) {
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+    if (password !== confirmPassword) {
+        event.preventDefault();
+        alert("Нууц үг хоорондоо таарахгүй байна.");
+        return;
+    }
+    event.preventDefault();
+    alert("Амжилттай бүртгэгдлээ!");
+    window.location.href = "Log-in.HTML";
+});
+</script>
 </body>
 </html>

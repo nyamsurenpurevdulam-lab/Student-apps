@@ -11,20 +11,36 @@
 <body>
 <div class="background">
     <div class="mobile">
-        <h3>Нүүр</h3>
+        <h3 id="title">Нүүр</h3>
         <div class="header">
             <div class="menu-container">
                 <i class="fa-solid fa-bars menu" id="menuBtn"></i>
                 <div class="menu-dropdown" id="menuDropdown">
-                    <a href="#" class="disabled">Тохиргоо</a>
-                    <a href="language.html">Хэл солих</a>
-                    <a href="#" class="disabled">Сурагчдийн мэдээлэл</a>
-                    <a href="#" class="disabled">Багшийн мэдээлэл</a>
-                    <a href="#" class="disabled">Өрөөний мэдээлэл</a>
-                    <a href="#" class="disabled">Чөлөө авах</a>
-                    <a href="#" class="disabled">Бүртгэл</a>
-                    <a href="#" class="disabled">Зарлал</a>
-                    <a href="login.html">
+                    <a href="#" class="disabled" id="settings">
+                        Тохиргоо
+                    </a>
+                    <a href="#" id="languageBtn">
+                        Хэл солих
+                    </a>
+                    <a href="#" class="disabled" id="student">
+                        Сурагчдийн мэдээлэл
+                    </a>
+                    <a href="#" class="disabled" id="teacher">
+                        Багшийн мэдээлэл
+                    </a>
+                    <a href="#" class="disabled" id="room">
+                        Өрөөний мэдээлэл
+                    </a>
+                    <a href="#" class="disabled" id="leave">
+                        Чөлөө авах
+                    </a>
+                    <a href="#" class="disabled" id="register">
+                        Бүртгэл
+                    </a>
+                    <a href="#" class="disabled" id="notice">
+                        Зарлал
+                    </a>
+                    <a href="login.html" id="logout">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Гарах
                     </a>
@@ -36,14 +52,11 @@
             </div>
         </div>
         <div class="quote-card">
-            <p>
+            <p id="quote">
                 Харамсахгүйн тулд хамаг чадлаараа хичээ.
-                Шаргуу хичээлийнхээ үр
-                дүнг өөртөө хүлээн зөвшөөр.
-                Гаргасан амжилт чинь чиний өмнөөс
-                 ярих болно.
-                Дэмий хэрэггүй оролдож байдаг 
-                хүмүүс л
+                Шаргуу хичээлийнхээ үр дүнг өөртөө хүлээн зөвшөөр.
+                Гаргасан амжилт чинь чиний өмнөөс ярих болно.
+                Дэмий хэрэггүй оролдож байдаг хүмүүс л
                 боломжгүй зүйлд хүрч чаддаг.
             </p>
         </div>
@@ -58,6 +71,69 @@ menuBtn.addEventListener("click", function(e){
 });
 document.addEventListener("click", function(){
     menuDropdown.classList.remove("active");
+});
+const languageBtn = document.getElementById("languageBtn");
+let lang = "mn";
+const text = {
+    mn: {
+        title:"Нүүр",
+        settings:"Тохиргоо",
+        language:"Хэл солих",
+        student:"Сурагчдийн мэдээлэл",
+        teacher:"Багшийн мэдээлэл",
+        room:"Өрөөний мэдээлэл",
+        leave:"Чөлөө авах",
+        register:"Бүртгэл",
+        notice:"Зарлал",
+        logout:"Гарах",
+        quote:
+        "Харамсахгүйн тулд хамаг чадлаараа хичээ. Шаргуу хичээлийнхээ үр дүнг өөртөө хүлээн зөвшөөр. Гаргасан амжилт чинь чиний өмнөөс ярих болно. Дэмий хэрэггүй оролдож байдаг хүмүүс л боломжгүй зүйлд хүрч чаддаг."
+    },
+    en: {
+        title:"Home",
+        settings:"Settings",
+        language:"Change Language",
+        student:"Student Information",
+        teacher:"Teacher Information",
+        room:"Room Information",
+        leave:"Request Leave",
+        register:"Registration",
+        notice:"Announcement",
+        logout:"Logout",
+        quote:
+        "Work hard so that you have no regrets. Accept the results of your efforts. Your achievements will speak for you. Only people who keep trying can achieve the impossible."
+    }
+};
+languageBtn.addEventListener("click",function(e){
+    e.preventDefault();
+    if(lang === "mn"){
+        lang="en";
+    }else{
+        lang="mn";
+    }
+    document.getElementById("title").textContent =
+    text[lang].title;
+    document.getElementById("settings").textContent =
+    text[lang].settings;
+    document.getElementById("languageBtn").textContent =
+    text[lang].language;
+    document.getElementById("student").textContent =
+    text[lang].student;
+    document.getElementById("teacher").textContent =
+    text[lang].teacher;
+    document.getElementById("room").textContent =
+    text[lang].room;
+    document.getElementById("leave").textContent =
+    text[lang].leave;
+    document.getElementById("register").textContent =
+    text[lang].register;
+    document.getElementById("notice").textContent =
+    text[lang].notice;
+    document.getElementById("logout").innerHTML =
+    '<i class="fa-solid fa-right-from-bracket"></i> ' 
+    + text[lang].logout;
+    document.getElementById("quote").textContent =
+    text[lang].quote;
 });
 </script>
 </body>
